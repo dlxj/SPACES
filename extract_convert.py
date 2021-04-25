@@ -101,6 +101,8 @@ if __name__ == '__main__':
 
     with open(data_extract_json, 'w', encoding='utf-8') as f:
         for d in data:
+            d = repr(d)
+            d = eval(d)
             f.write(json.dumps(d, ensure_ascii=False) + '\n')
 
     print(u'输入数据：%s' % data_json)

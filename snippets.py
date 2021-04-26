@@ -36,8 +36,8 @@ nezha_config_path = './NEZHA-Base/bert_config.json'
 nezha_checkpoint_path = './NEZHA-Base/model.ckpt-900000'
 nezha_dict_path = './NEZHA-Base/vocab.txt'
 
+
 # 将数据划分N份，一份作为验证集
-# import pdb; pdb.set_trace();
 num_folds = 15
 
 # 指标名

@@ -21,7 +21,7 @@ from snippets import *
 
 # 基本参数
 maxlen = 1024
-batch_size = 5
+batch_size = 3
 epochs = 50
 k_sparse = 10
 data_seq2seq_json = data_json[:-5] + '_seq2seq.json'

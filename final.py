@@ -17,7 +17,7 @@ from snippets import *
 if len(sys.argv) == 1:
     fold = 0
 else:
-    fold = int(sys.argv[1])
+    fold = 0 #int(sys.argv[1])
 
 
 def predict(text, topk=3):
@@ -36,16 +36,27 @@ def predict(text, topk=3):
 if __name__ == '__main__':
 
     from tqdm import tqdm
+    import pandas as pd
+    tmp = []
 
-    data = extract.load_data(extract.data_extract_json)
-    valid_data = data_split(data, fold, num_folds, 'valid')
-    total_metrics = {k: 0.0 for k in metric_keys}
-    for d in tqdm(valid_data):
-        text = '\n'.join(d[0])
-        summary = predict(text)
-        metrics = compute_metrics(summary, d[2])
-        for k, v in metrics.items():
-            total_metrics[k] += v
+    for i in range(num_folds):
+        fold = i
+
+        data = extract.load_data(extract.data_extract_json)
+        valid_data = data_split(data, fold, num_folds, 'valid')
+        total_metrics = {k: 0.0 for k in metric_keys}
+        for d in tqdm(valid_data):
+            text = '\n'.join(d[0])
+            summary = predict(text)
+
+            tmp.append([text, summary])
+
+            metrics = compute_metrics(summary, d[2])
+            for k, v in metrics.items():
+                total_metrics[k] += v
+
+    csv = pd.DataFrame(tmp,columns=['文本','摘要'])
+    csv.to_csv('/content/summarys.csv', index=False ,encoding="utf-8")
 
     metrics = {k: v / len(valid_data) for k, v in total_metrics.items()}
     print(metrics)

@@ -39,7 +39,7 @@ if __name__ == '__main__':
     import pandas as pd
     tmp = []
 
-    for i in range(num_folds):
+    for i in range(1): # num_folds
         fold = i
 
         data = extract.load_data(extract.data_extract_json)

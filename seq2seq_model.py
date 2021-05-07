@@ -296,7 +296,6 @@ class Evaluator(keras.callbacks.Callback):
         optimizer.apply_ema_weights()
         if epoch == epochs - 1:
             model.save_weights('weights/seq2seq_model.%s.weights' % epoch)  # 保存模型
-            model.save_weights('/content/gdrive/seq2seq_model.%s.weights' % epoch)
         optimizer.reset_old_weights()
 
 

@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
     csv = pd.DataFrame(tmp,columns=['文本','摘要'])
     csv.to_csv('/content/summarys.csv', index=False ,encoding="utf-8")
-    csv.to_csv('/content/gdrive/summarys.csv', index=False ,encoding="utf-8")
+    csv.to_csv('/content/gdrive/MyDrive/summarys.csv', index=False ,encoding="utf-8")
     
     metrics = {k: v / len(valid_data) for k, v in total_metrics.items()}
     print(metrics)

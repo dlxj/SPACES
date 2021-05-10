@@ -22,7 +22,7 @@ from snippets import *
 # 基本参数
 maxlen = 1024
 batch_size = 5
-epochs = 3
+epochs = 1024
 k_sparse = 10
 data_seq2seq_json = data_json[:-5] + '_seq2seq.json'
 seq2seq_config_json = data_json[:-10] + 'seq2seq_config.json'

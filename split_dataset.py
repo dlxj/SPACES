@@ -50,9 +50,9 @@ if __name__ == "__main__":
         m = math.ceil( total * 0.98 )
 
         trainsets = train_origins[ : m]
-        trainsets = trainsets[:100] # 转换数据实在是太久了，弄小点
+        trainsets = trainsets[:1000] # 转换数据实在是太久了，弄小点
         validsets = train_origins[m :]
-        validsets = validsets[:20]
+        validsets = validsets[:50]
 
         trainsets = "\n".join(trainsets)
         validsets = "\n".join(validsets)
